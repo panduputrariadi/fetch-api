@@ -15,10 +15,10 @@ export function Navbar() {
         <section className="list-none z-50">
             <nav className="bg-white shadow-md px-20 py-6 flex justify-between items-center">
                 <div className="flex items-center gap-8">
-                    <section className="flex items-center gap-4">
+                    <div className="flex items-center gap-4">
                         <ButtonToggleSideBarMenu onClick={() => setMenu(true)} />
                         <NavbarSideMenuName />
-                    </section>
+                    </div>
                 </div>
 
                 <NavbarMenuNavigation />
