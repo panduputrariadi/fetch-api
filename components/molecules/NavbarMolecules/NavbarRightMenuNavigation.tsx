@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { CgProfile } from "react-icons/cg";
-import { FiLogOut, FiShoppingCart } from "react-icons/fi";
+import { FiLogIn, FiLogOut, FiShoppingCart } from "react-icons/fi";
 
 function NavbarRightMenuNavigation() {
   return (
@@ -12,8 +12,8 @@ function NavbarRightMenuNavigation() {
       <Link href={"/cart"}>
         <CgProfile className="text-2xl cursor-pointer" />
       </Link>
-      <Link href={"log-out"}>
-        <FiLogOut className="text-2xl cursor-pointer" />
+      <Link href={"login"}>
+        <FiLogIn className="text-2xl cursor-pointer" />
       </Link>
     </div>
   );

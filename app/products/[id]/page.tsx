@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 interface Product {
   id?: number;
@@ -21,18 +22,8 @@ export default function DetailProduct({ params }: any) {
   useEffect(() => {
     const getProductById = async () => {
       try {
-        const response = await fetch(
-          `https://fakestoreapi.com/products/${params.id}`,
-          {
-            method: "GET",
-          }
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch product");
-        }
-        const data = await response.json();
-        console.log(data); // Log the response data
-        setProduct(data);
+        const response = await axios.get(`https://fakestoreapi.com/products/${params.id}`);
+        setProduct(response.data);
       } catch (error) {
         console.error("Error fetching product:", error);
       }
@@ -64,8 +55,8 @@ export default function DetailProduct({ params }: any) {
                 <p className="leading-relaxed">{product.description}</p>
                 <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                   <span className="mr-3">Rating:</span>
-                  <span>{product.rating?.rate}</span> {/* Menampilkan rating */}
-                  <span className="ml-1">({product.rating?.count} reviews)</span> {/* Menampilkan jumlah reviews */}
+                  <span>{product.rating?.rate}</span>
+                  <span className="ml-1">({product.rating?.count} reviews)</span>
                 </div>
                 <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                   <div className="flex ml-6 items-center">
